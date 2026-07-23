@@ -3,7 +3,7 @@ Contributors: mrshahbazdev
 Donate link: https://github.com/mrshahbazdev/wp-download
 Tags: download theme zip, download plugin zip, backup themes, backup plugins, wordpress downloader
 Requires at least: 6.5
-Tested up to: 6.7
+Tested up to: 6.5
 Requires PHP: 7.4
 Stable tag: 1.2.0
 License: GPLv2 or later
