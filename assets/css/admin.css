@@ -1,0 +1,169 @@
+.wpd-wrap {
+	max-width: 1400px;
+	margin-top: 20px;
+}
+
+.wpd-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+
+.wpd-header h1 {
+	margin: 0;
+}
+
+.wpd-toolbar {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.wpd-toolbar input[type="search"] {
+	min-width: 260px;
+}
+
+.wpd-tabs {
+	display: flex;
+	gap: 0;
+	border-bottom: 1px solid #c3c4c7;
+	margin-bottom: 20px;
+}
+
+.wpd-tab {
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	border-bottom-color: #c3c4c7;
+	background: #f0f0f1;
+	color: #3c434a;
+	cursor: pointer;
+	font-weight: 500;
+	margin-bottom: -1px;
+}
+
+.wpd-tab:hover {
+	background: #fff;
+}
+
+.wpd-tab.active {
+	background: #fff;
+	border-color: #c3c4c7;
+	border-bottom-color: #fff;
+	color: #2271b1;
+}
+
+.wpd-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
+}
+
+.wpd-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	border-radius: 4px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	transition: box-shadow .15s ease;
+}
+
+.wpd-card:hover {
+	box-shadow: 0 4px 8px rgba(0,0,0,.08);
+}
+
+.wpd-card.hidden {
+	display: none;
+}
+
+.wpd-card__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.wpd-card__title {
+	margin: 0;
+	font-size: 16px;
+	line-height: 1.3;
+}
+
+.wpd-card__meta {
+	font-size: 12px;
+	color: #646970;
+}
+
+.wpd-card__desc {
+	font-size: 13px;
+	color: #3c434a;
+	line-height: 1.5;
+	flex: 1;
+}
+
+.wpd-card__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.wpd-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .3px;
+}
+
+.wpd-badge--active {
+	background: #d1f7d1;
+	color: #0a5a0a;
+}
+
+.wpd-badge--inactive {
+	background: #f0f0f1;
+	color: #646970;
+}
+
+.wpd-card__checkbox {
+	margin: 0;
+}
+
+.wpd-empty {
+	padding: 40px;
+	text-align: center;
+	color: #646970;
+	font-size: 14px;
+}
+
+.wpd-bulk-bar {
+	display: none;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 16px;
+	background: #f0f6fc;
+	border: 1px solid #c5d9ed;
+	border-radius: 4px;
+	margin-bottom: 16px;
+}
+
+.wpd-bulk-bar.visible {
+	display: flex;
+}
+
+@media screen and (max-width: 782px) {
+	.wpd-grid {
+		grid-template-columns: 1fr;
+	}
+}
