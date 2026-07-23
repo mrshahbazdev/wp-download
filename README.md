@@ -22,12 +22,12 @@ Whether you need to back up an installed theme, clone a plugin to another site, 
 
 ## Installation
 
-1. Download the latest `wp-downloader.zip` release.
+1. Download the latest `wp-download.zip` release.
 2. Go to **Plugins → Add New → Upload Plugin** in your WordPress admin.
 3. Choose the ZIP file and click **Install Now**.
 4. Click **Activate**.
 
-Alternatively, extract the `wp-downloader` folder into `/wp-content/plugins/` and activate it from the Plugins screen.
+Alternatively, extract the `wp-download` folder into `/wp-content/plugins/` and activate it from the Plugins screen.
 
 ## Usage
 

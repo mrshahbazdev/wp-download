@@ -28,7 +28,7 @@ Whether you are backing up a site, cloning a plugin to another project, or archi
 
 == Installation ==
 
-1. Upload the `wp-downloader` folder to `/wp-content/plugins/` or install the ZIP from **Plugins → Add New → Upload Plugin**.
+1. Upload the `wp-download` folder to `/wp-content/plugins/` or install the ZIP from **Plugins → Add New → Upload Plugin**.
 2. Activate the plugin through the **Plugins** menu in WordPress.
 3. Go to **Tools → WP Downloader** to start downloading.
 
