@@ -3,7 +3,8 @@
  * Plugin Name: WP Downloader
  * Description: Download any installed WordPress theme or plugin as a ZIP file from the admin dashboard.
  * Version: 1.2.0
- * Author: Devin
+ * Author: mrshahbazdev
+ * Author URI: https://github.com/mrshahbazdev
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wp-download
