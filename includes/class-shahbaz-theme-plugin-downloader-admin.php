@@ -8,28 +8,28 @@ class WP_Downloader_Admin {
 
 	public static function add_menu() {
 		add_management_page(
-			__( 'WP Downloader', 'wp-download' ),
-			__( 'WP Downloader', 'wp-download' ),
+			__( 'Shahbaz Theme & Plugin Downloader', 'shahbaz-theme-plugin-downloader' ),
+			__( 'Shahbaz Theme & Plugin Downloader', 'shahbaz-theme-plugin-downloader' ),
 			'manage_options',
-			'wp-download',
+			'shahbaz-theme-plugin-downloader',
 			array( __CLASS__, 'render_page' )
 		);
 	}
 
 	public static function add_assets( $hook ) {
-		if ( 'tools_page_wp-download' !== $hook ) {
+		if ( 'tools_page_shahbaz-theme-plugin-downloader' !== $hook ) {
 			return;
 		}
 
 		wp_enqueue_style(
-			'wp-download-admin',
+			'shahbaz-theme-plugin-downloader-admin',
 			WP_DOWNLOADER_URL . 'assets/css/admin.css',
 			array(),
 			WP_DOWNLOADER_VERSION
 		);
 
 		wp_enqueue_script(
-			'wp-download-admin',
+			'shahbaz-theme-plugin-downloader-admin',
 			WP_DOWNLOADER_URL . 'assets/js/admin.js',
 			array(),
 			WP_DOWNLOADER_VERSION,
@@ -38,25 +38,25 @@ class WP_Downloader_Admin {
 	}
 
 	public static function handle_download() {
-		if ( ! isset( $_REQUEST['page'], $_REQUEST['wpd_action'] ) || 'wp-download' !== $_REQUEST['page'] ) {
+		if ( ! isset( $_REQUEST['page'], $_REQUEST['wpd_action'] ) || 'shahbaz-theme-plugin-downloader' !== $_REQUEST['page'] ) {
 			return;
 		}
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to download this item.', 'wp-download' ) );
+			wp_die( esc_html__( 'You do not have permission to download this item.', 'shahbaz-theme-plugin-downloader' ) );
 		}
 
 		check_admin_referer( 'wpd_download' );
 
 		if ( ! class_exists( 'ZipArchive' ) ) {
-			wp_die( esc_html__( 'ZipArchive extension is not available on this server.', 'wp-download' ) );
+			wp_die( esc_html__( 'ZipArchive extension is not available on this server.', 'shahbaz-theme-plugin-downloader' ) );
 		}
 
 		$action = sanitize_text_field( wp_unslash( $_REQUEST['wpd_action'] ) );
 
 		if ( 'download' === $action ) {
 			if ( ! isset( $_REQUEST['wpd_type'], $_REQUEST['wpd_slug'] ) ) {
-				wp_die( esc_html__( 'Missing download parameters.', 'wp-download' ) );
+				wp_die( esc_html__( 'Missing download parameters.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			$type = sanitize_text_field( wp_unslash( $_REQUEST['wpd_type'] ) );
@@ -73,7 +73,7 @@ class WP_Downloader_Admin {
 
 		if ( 'bulk_download' === $action ) {
 			if ( ! isset( $_REQUEST['wpd_items'] ) || '' === $_REQUEST['wpd_items'] ) {
-				wp_die( esc_html__( 'No items selected.', 'wp-download' ) );
+				wp_die( esc_html__( 'No items selected.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			$items_raw = sanitize_text_field( wp_unslash( $_REQUEST['wpd_items'] ) );
@@ -102,10 +102,10 @@ class WP_Downloader_Admin {
 			}
 
 			if ( empty( $entries ) ) {
-				wp_die( esc_html__( 'No valid items were found to download.', 'wp-download' ) );
+				wp_die( esc_html__( 'No valid items were found to download.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
-			$zip_name = 'wp-download-bulk-' . current_time( 'Ymd-His' );
+			$zip_name = 'shahbaz-theme-plugin-downloader-bulk-' . current_time( 'Ymd-His' );
 			self::serve_zip( $entries, $zip_name );
 		}
 	}
@@ -116,14 +116,14 @@ class WP_Downloader_Admin {
 			$path     = realpath( WP_PLUGIN_DIR . '/' . $slug );
 
 			if ( false === $path || false === $base_dir ) {
-				return new WP_Error( 'invalid_path', __( 'Invalid plugin path.', 'wp-download' ) );
+				return new WP_Error( 'invalid_path', __( 'Invalid plugin path.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			$base_dir = str_replace( '\\', '/', $base_dir );
 			$path     = str_replace( '\\', '/', $path );
 
 			if ( 0 !== strpos( $path, $base_dir ) ) {
-				return new WP_Error( 'invalid_path', __( 'Invalid plugin path.', 'wp-download' ) );
+				return new WP_Error( 'invalid_path', __( 'Invalid plugin path.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			if ( is_dir( $path ) || is_file( $path ) ) {
@@ -134,27 +134,27 @@ class WP_Downloader_Admin {
 		if ( 'theme' === $type ) {
 			$theme = wp_get_theme( $slug );
 			if ( ! $theme->exists() ) {
-				return new WP_Error( 'not_found', __( 'Theme not found.', 'wp-download' ) );
+				return new WP_Error( 'not_found', __( 'Theme not found.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			$path     = realpath( $theme->get_stylesheet_directory() );
 			$base_dir = realpath( get_theme_root() );
 
 			if ( false === $path || false === $base_dir ) {
-				return new WP_Error( 'invalid_path', __( 'Invalid theme path.', 'wp-download' ) );
+				return new WP_Error( 'invalid_path', __( 'Invalid theme path.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			$base_dir = str_replace( '\\', '/', $base_dir );
 			$path     = str_replace( '\\', '/', $path );
 
 			if ( 0 !== strpos( $path, $base_dir ) ) {
-				return new WP_Error( 'invalid_path', __( 'Invalid theme path.', 'wp-download' ) );
+				return new WP_Error( 'invalid_path', __( 'Invalid theme path.', 'shahbaz-theme-plugin-downloader' ) );
 			}
 
 			return $path;
 		}
 
-		return new WP_Error( 'invalid_type', __( 'Invalid item type.', 'wp-download' ) );
+		return new WP_Error( 'invalid_type', __( 'Invalid item type.', 'shahbaz-theme-plugin-downloader' ) );
 	}
 
 	private static function get_item_name( $type, $slug ) {
@@ -183,7 +183,7 @@ class WP_Downloader_Admin {
 		$zip = new ZipArchive();
 
 		if ( true !== $zip->open( $tmp, ZipArchive::CREATE | ZipArchive::OVERWRITE ) ) {
-			wp_die( esc_html__( 'Unable to create ZIP file.', 'wp-download' ) );
+			wp_die( esc_html__( 'Unable to create ZIP file.', 'shahbaz-theme-plugin-downloader' ) );
 		}
 
 		foreach ( $entries as $entry ) {
@@ -229,7 +229,7 @@ class WP_Downloader_Admin {
 
 	public static function render_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'wp-download' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'shahbaz-theme-plugin-downloader' ) );
 		}
 
 		$themes  = wp_get_themes();
@@ -242,13 +242,13 @@ class WP_Downloader_Admin {
 			$active_plugins[ $parts[0] ] = true;
 		}
 
-		$base_url = admin_url( 'tools.php?page=wp-download' );
+		$base_url = admin_url( 'tools.php?page=shahbaz-theme-plugin-downloader' );
 		?>
 		<div class="wrap wpd-wrap">
 			<div class="wpd-header">
 				<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 				<div class="wpd-toolbar">
-					<input type="search" id="wpd-search" placeholder="<?php esc_attr_e( 'Search themes & plugins...', 'wp-download' ); ?>" />
+					<input type="search" id="wpd-search" placeholder="<?php esc_attr_e( 'Search themes & plugins...', 'shahbaz-theme-plugin-downloader' ); ?>" />
 				</div>
 			</div>
 
@@ -256,17 +256,17 @@ class WP_Downloader_Admin {
 				<?php wp_nonce_field( 'wpd_download' ); ?>
 				<input type="hidden" name="wpd_items" id="wpd-items" value="" />
 				<div class="wpd-bulk-bar">
-					<span><?php esc_html_e( 'Selected:', 'wp-download' ); ?> <strong id="wpd-checked-count">0</strong></span>
-					<?php submit_button( __( 'Download Selected as ZIP', 'wp-download' ), 'primary', 'wpd_bulk_submit', false ); ?>
+					<span><?php esc_html_e( 'Selected:', 'shahbaz-theme-plugin-downloader' ); ?> <strong id="wpd-checked-count">0</strong></span>
+					<?php submit_button( __( 'Download Selected as ZIP', 'shahbaz-theme-plugin-downloader' ), 'primary', 'wpd_bulk_submit', false ); ?>
 				</div>
 			</form>
 
 			<div class="wpd-tabs">
 				<button type="button" class="wpd-tab active" data-target="wpd-themes">
-					<?php esc_html_e( 'Themes', 'wp-download' ); ?> (<?php echo esc_html( number_format_i18n( count( $themes ) ) ); ?>)
+					<?php esc_html_e( 'Themes', 'shahbaz-theme-plugin-downloader' ); ?> (<?php echo esc_html( number_format_i18n( count( $themes ) ) ); ?>)
 				</button>
 				<button type="button" class="wpd-tab" data-target="wpd-plugins">
-					<?php esc_html_e( 'Plugins', 'wp-download' ); ?> (<?php echo esc_html( number_format_i18n( count( $plugins ) ) ); ?>)
+					<?php esc_html_e( 'Plugins', 'shahbaz-theme-plugin-downloader' ); ?> (<?php echo esc_html( number_format_i18n( count( $plugins ) ) ); ?>)
 				</button>
 			</div>
 
@@ -286,12 +286,12 @@ class WP_Downloader_Admin {
 		<div class="wpd-toolbar" style="margin-bottom: 16px;">
 			<label>
 				<input type="checkbox" class="wpd-select-all" />
-				<?php esc_html_e( 'Select all visible', 'wp-download' ); ?>
+				<?php esc_html_e( 'Select all visible', 'shahbaz-theme-plugin-downloader' ); ?>
 			</label>
 		</div>
 		<div class="wpd-grid">
 			<?php if ( empty( $items ) ) : ?>
-				<div class="wpd-empty"><?php esc_html_e( 'No items found.', 'wp-download' ); ?></div>
+				<div class="wpd-empty"><?php esc_html_e( 'No items found.', 'shahbaz-theme-plugin-downloader' ); ?></div>
 			<?php else : ?>
 				<?php foreach ( $items as $key => $item ) : ?>
 					<?php
@@ -321,17 +321,17 @@ class WP_Downloader_Admin {
 							<input type="checkbox" class="wpd-card__checkbox" value="<?php echo esc_attr( $type . ':' . $slug ); ?>" />
 						</div>
 						<div class="wpd-card__meta">
-							<?php echo esc_html( $slug ); ?> &bull; <?php esc_html_e( 'Version', 'wp-download' ); ?> <?php echo esc_html( $version ); ?>
+							<?php echo esc_html( $slug ); ?> &bull; <?php esc_html_e( 'Version', 'shahbaz-theme-plugin-downloader' ); ?> <?php echo esc_html( $version ); ?>
 						</div>
 						<div class="wpd-card__desc">
 							<?php echo esc_html( wp_trim_words( $desc, 25 ) ); ?>
 						</div>
 						<div class="wpd-card__footer">
 							<span class="wpd-badge <?php echo $active ? 'wpd-badge--active' : 'wpd-badge--inactive'; ?>">
-								<?php echo $active ? esc_html__( 'Active', 'wp-download' ) : esc_html__( 'Inactive', 'wp-download' ); ?>
+								<?php echo $active ? esc_html__( 'Active', 'shahbaz-theme-plugin-downloader' ) : esc_html__( 'Inactive', 'shahbaz-theme-plugin-downloader' ); ?>
 							</span>
 							<a class="button" href="<?php echo esc_url( $download_url ); ?>">
-								<?php esc_html_e( 'Download ZIP', 'wp-download' ); ?>
+								<?php esc_html_e( 'Download ZIP', 'shahbaz-theme-plugin-downloader' ); ?>
 							</a>
 						</div>
 					</div>
@@ -339,7 +339,7 @@ class WP_Downloader_Admin {
 			<?php endif; ?>
 		</div>
 		<div class="wpd-empty" style="display: none;">
-			<?php esc_html_e( 'No items match your search.', 'wp-download' ); ?>
+			<?php esc_html_e( 'No items match your search.', 'shahbaz-theme-plugin-downloader' ); ?>
 		</div>
 		<?php
 	}
