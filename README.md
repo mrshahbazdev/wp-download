@@ -1,14 +1,14 @@
-# Shahbaz Theme & Extension Downloader – Download WordPress Themes & Plugins as ZIP
+# MrShahbazDev Theme & Extension Downloader – Download WordPress Themes & Plugins as ZIP
 
-Shahbaz Theme & Extension Downloader is a lightweight, secure WordPress admin tool that lets you download any installed theme or plugin as a ZIP file directly from the dashboard. It is perfect for backups, migrations, offline development, or sharing a custom build with clients.
+MrShahbazDev Theme & Extension Downloader is a lightweight, secure WordPress admin tool that lets you download any installed theme or plugin as a ZIP file directly from the dashboard. It is perfect for backups, migrations, offline development, or sharing a custom build with clients.
 
 [![WordPress](https://img.shields.io/badge/WordPress-6.5%2B-blue)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-8892BF)](https://php.net/)
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-green)](https://www.gnu.org/licenses/gpl-2.0.html)
 
-## Why Shahbaz Theme & Extension Downloader?
+## Why MrShahbazDev Theme & Extension Downloader?
 
-Whether you need to back up an installed theme, clone a plugin to another site, or archive your work before an update, Shahbaz Theme & Extension Downloader makes it fast. No FTP, no cPanel, and no command line required.
+Whether you need to back up an installed theme, clone a plugin to another site, or archive your work before an update, MrShahbazDev Theme & Extension Downloader makes it fast. No FTP, no cPanel, and no command line required.
 
 ## Key Features
 
@@ -22,16 +22,16 @@ Whether you need to back up an installed theme, clone a plugin to another site, 
 
 ## Installation
 
-1. Download the latest `shahbaz-theme-extension-downloader.zip` release.
+1. Download the latest `mrshahbazdev-theme-extension-downloader.zip` release.
 2. Go to **Plugins → Add New → Upload Plugin** in your WordPress admin.
 3. Choose the ZIP file and click **Install Now**.
 4. Click **Activate**.
 
-Alternatively, extract the `shahbaz-theme-extension-downloader` folder into `/wp-content/plugins/` and activate it from the Plugins screen.
+Alternatively, extract the `mrshahbazdev-theme-extension-downloader` folder into `/wp-content/plugins/` and activate it from the Plugins screen.
 
 ## Usage
 
-1. From the WordPress admin menu, go to **Tools → Shahbaz Theme & Extension Downloader**.
+1. From the WordPress admin menu, go to **Tools → MrShahbazDev Theme & Extension Downloader**.
 2. Use the **Themes** and **Plugins** tabs to switch between item types.
 3. Use the search box to filter by name, slug, author, or description.
 4. Click **Download ZIP** next to any item to save it individually.
@@ -45,8 +45,8 @@ Alternatively, extract the `shahbaz-theme-extension-downloader` folder into `/wp
 
 ## Frequently Asked Questions
 
-### Who can use Shahbaz Theme & Extension Downloader?
-Only administrators (users with the `manage_options` capability) can access the Shahbaz Theme & Extension Downloader page.
+### Who can use MrShahbazDev Theme & Extension Downloader?
+Only administrators (users with the `manage_options` capability) can access the MrShahbazDev Theme & Extension Downloader page.
 
 ### Does it work with active themes and plugins?
 Yes. Active and inactive themes and plugins can be downloaded.
@@ -73,7 +73,7 @@ It uses `manage_options` capability checks, which should work on multisite when 
 
 ## License
 
-Shahbaz Theme & Extension Downloader is free software released under the [GNU General Public License v2.0 or later](https://www.gnu.org/licenses/gpl-2.0.html).
+MrShahbazDev Theme & Extension Downloader is free software released under the [GNU General Public License v2.0 or later](https://www.gnu.org/licenses/gpl-2.0.html).
 
 ## Support & Contributions
 
