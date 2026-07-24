@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Shahbaz Theme & Plugin Downloader
+ * Plugin Name: Shahbaz Theme & Extension Downloader
  * Description: Download any installed WordPress theme or plugin as a ZIP file from the admin dashboard.
  * Version: 1.2.1
  * Author: mrshahbazdev
  * Author URI: https://github.com/mrshahbazdev
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: shahbaz-theme-plugin-downloader
+ * Text Domain: shahbaz-theme-extension-downloader
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ define( 'WP_DOWNLOADER_FILE', __FILE__ );
 define( 'WP_DOWNLOADER_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_DOWNLOADER_URL', plugin_dir_url( __FILE__ ) );
 
-require_once WP_DOWNLOADER_DIR . 'includes/class-shahbaz-theme-plugin-downloader-admin.php';
+require_once WP_DOWNLOADER_DIR . 'includes/class-shahbaz-theme-extension-downloader-admin.php';
 
 add_action( 'admin_menu', array( 'WP_Downloader_Admin', 'add_menu' ) );
 add_action( 'admin_init', array( 'WP_Downloader_Admin', 'handle_download' ) );

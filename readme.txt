@@ -1,7 +1,7 @@
-=== Shahbaz Theme & Plugin Downloader ===
+=== Shahbaz Theme & Extension Downloader ===
 Contributors: mrshahbaznns
 Donate link: https://github.com/mrshahbazdev/wp-download
-Tags: download theme zip, download plugin zip, backup themes, backup plugins, wordpress downloader
+Tags: download theme zip, download extension zip, backup themes, backup extensions, zip downloader
 Requires at least: 6.5
 Tested up to: 6.5
 Requires PHP: 7.4
@@ -13,9 +13,9 @@ Download any installed WordPress theme or plugin as a ZIP file from your admin d
 
 == Description ==
 
-Shahbaz Theme & Plugin Downloader is a fast, secure admin tool for WordPress that lets you download any installed theme or plugin as a ZIP archive without FTP, cPanel, or the command line.
+Shahbaz Theme & Extension Downloader is a fast, secure admin tool for WordPress that lets you download any installed theme or plugin as a ZIP archive without FTP, cPanel, or the command line.
 
-Whether you are backing up a site, cloning a plugin to another project, or archiving a custom theme before an update, Shahbaz Theme & Plugin Downloader makes the process simple.
+Whether you are backing up a site, cloning a plugin to another project, or archiving a custom theme before an update, Shahbaz Theme & Extension Downloader makes the process simple.
 
 = Features =
 * One-click ZIP download for any installed theme or plugin.
@@ -28,14 +28,14 @@ Whether you are backing up a site, cloning a plugin to another project, or archi
 
 == Installation ==
 
-1. Upload the `shahbaz-theme-plugin-downloader` folder to `/wp-content/plugins/` or install the ZIP from **Plugins → Add New → Upload Plugin**.
+1. Upload the `shahbaz-theme-extension-downloader` folder to `/wp-content/plugins/` or install the ZIP from **Plugins → Add New → Upload Plugin**.
 2. Activate the plugin through the **Plugins** menu in WordPress.
-3. Go to **Tools → Shahbaz Theme & Plugin Downloader** to start downloading.
+3. Go to **Tools → Shahbaz Theme & Extension Downloader** to start downloading.
 
 == Frequently Asked Questions ==
 
-= Who can use Shahbaz Theme & Plugin Downloader? =
-Only users with the `manage_options` capability (administrators by default) can access Shahbaz Theme & Plugin Downloader.
+= Who can use Shahbaz Theme & Extension Downloader? =
+Only users with the `manage_options` capability (administrators by default) can access Shahbaz Theme & Extension Downloader.
 
 = Can I download active themes and plugins? =
 Yes. Both active and inactive themes and plugins can be downloaded.
