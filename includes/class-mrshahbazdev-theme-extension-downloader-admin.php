@@ -203,8 +203,14 @@ class WP_Downloader_Admin {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		readfile( $tmp );
-		unlink( $tmp );
+		if ( ! function_exists( 'WP_Filesystem' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+		}
+		WP_Filesystem();
+		global $wp_filesystem;
+
+		echo $wp_filesystem->get_contents( $tmp );
+		wp_delete_file( $tmp );
 		exit;
 	}
 
